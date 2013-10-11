@@ -2775,18 +2775,27 @@
         </activity>
         
         <!-- add begin by daiq -->
+        <!-- Exercise -->
         <activity android:name="cn.daiq.exe.Exe1" android:label="DaiQ/Exercise/Exe1">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.SAMPLE_CODE" />
             </intent-filter>
         </activity>
+        <activity android:name="cn.daiq.exe.graphics.AlphaBitmap" android:label="DaiQ/Exercise/Graphics/AlphaBitmap">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <!-- Source -->
         <activity android:name="cn.daiq.src.Src1" android:label="DaiQ/Source/Src1">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.SAMPLE_CODE" />
             </intent-filter>
         </activity>
+        <!-- Test -->
         <activity android:name="cn.daiq.test.Test1" android:label="DaiQ/Test/Test1">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
