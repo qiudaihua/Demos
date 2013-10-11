@@ -2788,6 +2788,13 @@
                 <category android:name="android.intent.category.SAMPLE_CODE" />
             </intent-filter>
         </activity>
+        <!-- Other -->
+        <activity android:name="cn.daiq.other.graphics.ShadowLayer" android:label="DaiQ/Other/Graphics/ShadowLayer">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
         <!-- Source -->
         <activity android:name="cn.daiq.src.Src1" android:label="DaiQ/Source/Src1">
             <intent-filter>
