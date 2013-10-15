@@ -2,6 +2,7 @@ package cn.daiq.exe.graphics;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Bitmap.Config;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -10,6 +11,8 @@ import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Shader;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.StateListDrawable;
 import android.os.Bundle;
 import android.view.View;
 
@@ -108,6 +111,24 @@ public class AlphaBitmap extends Activity {
             y += mBitmap4.getHeight();
             p.setShader(shader);
             canvas.drawBitmap(mBitmap5, 10, y, p);
+            
+            //给图片的边缘加上光晕
+            //ImageView v = (ImageView) findViewById(R.id.image);// 一定要给ImageView加上几个像素的Padding，要不然效果出来不了
+            Paint p2 = new Paint();
+            p2.setColor(Color.RED);// 红色的光晕
+            Bitmap mBitmap6 = BitmapFactory.decodeResource(getResources(), R.drawable.pentagon);//bd.getBitmap();
+            Bitmap bitmap = Bitmap.createBitmap(mBitmap6.getWidth(), mBitmap6.getHeight(),
+                    Config.ARGB_8888);
+            Canvas canvas2 = new Canvas(bitmap);
+            canvas2.drawBitmap(mBitmap6.extractAlpha(), 0, 0, p2);
+
+            StateListDrawable sld = new StateListDrawable();
+            sld.addState(new int[] {
+                android.R.attr.state_pressed
+            }, new BitmapDrawable(bitmap));
+
+            y += mBitmap5.getHeight();
+            canvas.drawBitmap(mBitmap6, 10, y, p);
             
             super.onDraw(canvas);
         }

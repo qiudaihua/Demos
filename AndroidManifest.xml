@@ -2809,6 +2809,12 @@
                 <category android:name="android.intent.category.SAMPLE_CODE" />
             </intent-filter>
         </activity>
+        <activity android:name="cn.daiq.test.ConfigureTest" android:label="DaiQ/Test/ConfigureTest">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
         <!-- add end -->
 
     </application>

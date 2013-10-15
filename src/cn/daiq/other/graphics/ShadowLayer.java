@@ -14,6 +14,7 @@ import android.graphics.PorterDuff.Mode;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.RectF;
+import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
@@ -25,7 +26,7 @@ public class ShadowLayer extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(new drawCanvas(this));
+        // setContentView(new drawCanvas(this));
         setContentView(new ImageEffect(this));
     }
 
@@ -154,6 +155,33 @@ public class ShadowLayer extends Activity {
             canvas.drawRoundRect(rectF, 10f, 10f, paint);// 在原有矩形基础上，画成圆角矩形，同时带有阴影层。
             canvas.drawBitmap(bmp, 2 * posX + PicWidth, 2 * posY + PicHeight, null);// 画上原图。
             canvas.restore();
+
+            // add
+/*            Bitmap photo = BitmapFactory.decodeResource(getResources(), R.drawable.app_sample_code);
+            int width = photo.getWidth();
+            int height = photo.getHeight();
+            Bitmap icon = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888); // 建立一个空的BItMap
+            Canvas canvas2 = new Canvas(icon);// 初始化画布 绘制的图像到icon上
+
+            Paint photoPaint = new Paint(); // 建立画笔
+            photoPaint.setDither(true); // 获取跟清晰的图像采样
+            photoPaint.setFilterBitmap(true);// 过滤一些
+
+            Rect src = new Rect(0, 0, photo.getWidth(), photo.getHeight());// 创建一个指定的新矩形的坐标
+            Rect dst = new Rect(0, 0, width, height);// 创建一个指定的新矩形的坐标
+            canvas2.drawBitmap(photo, src, dst, photoPaint);// 将photo 缩放或则扩大到
+                                                            // dst使用的填充区photoPaint
+
+            Paint textPaint = new Paint(Paint.ANTI_ALIAS_FLAG | Paint.DEV_KERN_TEXT_FLAG);// 设置画笔
+            textPaint.setTextSize(20.0f);// 字体大小
+            textPaint.setTypeface(Typeface.DEFAULT_BOLD);// 采用默认的宽度
+            textPaint.setColor(Color.RED);// 采用的颜色
+            textPaint.setShadowLayer(3f, 1, 1,
+                    getResources().getColor(android.R.color.background_dark));// 影音的设置
+            canvas2.drawText("Text", 20, 26, textPaint);// 绘制上去 字，开始未知x,y采用那只笔绘制
+            
+            canvas.drawBitmap(photo, 3 * posX + PicWidth, 2 * posY, null);//水印
+            canvas.restore();*/
         }
     }
 }
