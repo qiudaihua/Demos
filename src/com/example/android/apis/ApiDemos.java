@@ -17,11 +17,15 @@
 package com.example.android.apis;
 
 import android.app.ListActivity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
 import android.os.Bundle;
+import android.os.PowerManager;
+import android.os.PowerManager.WakeLock;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -35,6 +39,9 @@ import java.util.List;
 import java.util.Map;
 
 public class ApiDemos extends ListActivity {
+
+    public static final String TAG = "DEMOS";
+    private WakeLock mWakeLock;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -51,6 +58,24 @@ public class ApiDemos extends ListActivity {
                 android.R.layout.simple_list_item_1, new String[] { "title" },
                 new int[] { android.R.id.text1 }));
         getListView().setTextFilterEnabled(true);
+
+        PowerManager pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+        if (mWakeLock == null) {
+            mWakeLock = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK, TAG);
+        }
+        if (mWakeLock != null) {
+            mWakeLock.acquire();
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        // TODO Auto-generated method stub
+        if (mWakeLock != null) {
+            mWakeLock.release();
+            mWakeLock = null;
+        }
+        super.onDestroy();
     }
 
     protected List<Map<String, Object>> getData(String prefix) {

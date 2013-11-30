@@ -1369,6 +1369,7 @@
     <string name="task_not_complete">is not complete</string>
 
     <!-- add begin by daiq -->
+    <string name="hello">Hello</string>
     <string name="daiq_exe_exe1">DaiQ/Exercise/Exe1</string>
     <string name="daiq_test_test1">DaiQ/Test/Test1</string>
     <string name="daiq_src_src1">DaiQ/Souce/Src1</string>

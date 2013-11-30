@@ -35,6 +35,10 @@
 
     <!-- For android.media.audiofx.Visualizer -->
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    
+    <!-- add begin by daiq -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- add end -->
 
     <uses-sdk android:minSdkVersion="4" android:targetSdkVersion="14" />
 
@@ -2782,6 +2786,12 @@
                 <category android:name="android.intent.category.SAMPLE_CODE" />
             </intent-filter>
         </activity>
+        <activity android:name="cn.daiq.exe.TabWidgetExe" android:label="DaiQ/Exercise/TabWidgetExe">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
         <activity android:name="cn.daiq.exe.graphics.AlphaBitmap" android:label="DaiQ/Exercise/Graphics/AlphaBitmap">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -2789,7 +2799,26 @@
             </intent-filter>
         </activity>
         <!-- Other -->
-        <activity android:name="cn.daiq.other.graphics.ShadowLayer" android:label="DaiQ/Other/Graphics/ShadowLayer">
+        <activity android:name="cn.daiq.other.graphics.ShadowLayer" android:label="DaiQ/Other/Graphics/ShadowLayer"
+            android:theme="@style/CustomTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:name="cn.daiq.other.BlurActivity" android:label="DaiQ/Other/BlurActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:name="cn.daiq.other.ShadowActivity" android:label="DaiQ/Other/ShadowActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:name="cn.daiq.other.PopMenuActivity" android:label="DaiQ/Other/PopMenuActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.SAMPLE_CODE" />
@@ -2797,6 +2826,18 @@
         </activity>
         <!-- Source -->
         <activity android:name="cn.daiq.src.Src1" android:label="DaiQ/Source/Src1">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:name="cn.daiq.src.BlurBackground" android:label="DaiQ/Source/BlurBackground">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity android:name="cn.daiq.src.StackTrace" android:label="DaiQ/Source/StackTrace">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.SAMPLE_CODE" />
@@ -2813,6 +2854,16 @@
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <activity 
+            android:name="cn.daiq.test.LauncherShortcutsTest"
+            android:label="DaiQ/Test/LauncherShortcutsTest"
+            android:icon="@drawable/logo240dpi">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.SAMPLE_CODE" />
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <!-- add end -->
