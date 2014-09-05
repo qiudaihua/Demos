@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+
+    <declare-styleable name="radialPercentage">
+        <attr name="remainingColor" format="color" />
+        <attr name="occupancyColor" format="color" />
+        <attr name="textIsDisplayable" format="boolean"></attr>
+        <attr name="percentTextColor" format="color" />
+        <attr name="percentTextSize" format="dimension" />
+        <attr name="roundWidth" format="dimension"></attr>
+        <attr name="startAngle" format="integer"></attr>
+        <attr name="percentWidth" format="integer"></attr>
+        <attr name="numerator" format="integer"></attr>
+        <attr name="denominator" format="integer"></attr>
+    </declare-styleable>
+
+</resources>

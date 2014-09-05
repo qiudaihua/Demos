@@ -1,3 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <lint>
+    <issue id="DrawAllocation">
+        <ignore path="src/cn/daiq/ui/RadialPercentage.java" />
+    </issue>
 </lint>

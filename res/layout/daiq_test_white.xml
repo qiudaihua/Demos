@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:daiq="http://schemas.android.com/apk/res/com.example.android.apis"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFFFF" >
+
+    <cn.daiq.ui.percent.RadialPercentage
+        android:id="@+id/radialPercentage"
+        android:layout_width="200dip"
+        android:layout_height="200dip"
+        android:background="@android:color/black"
+        daiq:remainingColor="#ffd3d3d3"
+        daiq:occupancyColor="#ff00b248"
+        daiq:percentTextColor="#ff444444"
+        daiq:textIsDisplayable="true"
+        daiq:numerator="92"
+        daiq:denominator="100" />
+</LinearLayout>
