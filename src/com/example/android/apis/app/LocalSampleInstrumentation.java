@@ -88,11 +88,5 @@ public class LocalSampleInstrumentation extends Instrumentation {
         Log.i("ContactsFilterInstrumentation", "Done!");
         finish(Activity.RESULT_OK, null);
     }
-    
-    @Override
-    public void onDestroy() {
-        // TODO Auto-generated method stub
-        super.onDestroy();
-    }
 }
 

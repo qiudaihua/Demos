@@ -22,10 +22,8 @@ import com.example.android.apis.R;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.TextView;
 
 
@@ -87,26 +85,6 @@ public class ResourcesSample extends Activity {
         // You can use them, but you might want to take a look at the view
         // examples to see how to make custom widgets.
 
-    }
-    
-    @Override
-    public void onConfigurationChanged(Configuration newConfig) {
-        // TODO Auto-generated method stub
-        super.onConfigurationChanged(newConfig);
-        
-        Log.d("Demos", "fontScale=" + newConfig.fontScale);
-        Log.d("Demos", "hardKeyboardHidden=" + newConfig.hardKeyboardHidden);
-        Log.d("Demos", "keyboard=" + newConfig.keyboard);
-        Log.d("Demos", "mcc=" + newConfig.mcc);
-        Log.d("Demos", "mnc=" + newConfig.mnc);
-        Log.d("Demos", "navigation=" + newConfig.navigation);
-        Log.d("Demos", "navigationHidden=" + newConfig.navigationHidden);
-        Log.d("Demos", "orientation=" + newConfig.orientation);
-        Log.d("Demos", "screenHeightDp=" + newConfig.screenHeightDp);
-        Log.d("Demos", "screenLayout=" + newConfig.screenLayout);
-        Log.d("Demos", "screenWidthDp=" + newConfig.screenWidthDp);
-        Log.d("Demos", "touchscreen=" + newConfig.touchscreen);
-        Log.d("Demos", "uiMode=" + newConfig.uiMode);
     }
 }
 

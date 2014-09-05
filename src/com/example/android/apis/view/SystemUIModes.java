@@ -27,12 +27,10 @@ import android.os.Bundle;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.view.ActionMode;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.CheckBox;
@@ -51,10 +49,10 @@ import com.example.android.apis.R;
  * the system decor, in order to better focus the user's attention or use available screen real
  * estate on the task at hand.
  */
-public class OverscanActivity extends Activity
+public class SystemUIModes extends Activity
         implements OnQueryTextListener, ActionBar.TabListener {
     public static class IV extends ImageView implements View.OnSystemUiVisibilityChangeListener {
-        private OverscanActivity mActivity;
+        private SystemUIModes mActivity;
         private ActionMode mActionMode;
         public IV(Context context) {
             super(context);
@@ -62,7 +60,7 @@ public class OverscanActivity extends Activity
         public IV(Context context, AttributeSet attrs) {
             super(context, attrs);
         }
-        public void setActivity(OverscanActivity act) {
+        public void setActivity(SystemUIModes act) {
             setOnSystemUiVisibilityChangeListener(this);
             mActivity = act;
         }
@@ -126,6 +124,42 @@ public class OverscanActivity extends Activity
         win.setAttributes(winParams);
     }
 
+    private void setOverscan(boolean on) {
+        Window win = getWindow();
+        WindowManager.LayoutParams winParams = win.getAttributes();
+        final int bits = WindowManager.LayoutParams.FLAG_LAYOUT_IN_OVERSCAN;
+        if (on) {
+            winParams.flags |=  bits;
+        } else {
+            winParams.flags &= ~bits;
+        }
+        win.setAttributes(winParams);
+    }
+
+    private void setTranslucentStatus(boolean on) {
+        Window win = getWindow();
+        WindowManager.LayoutParams winParams = win.getAttributes();
+        final int bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
+        if (on) {
+            winParams.flags |=  bits;
+        } else {
+            winParams.flags &= ~bits;
+        }
+        win.setAttributes(winParams);
+    }
+
+    private void setTranslucentNavigation(boolean on) {
+        Window win = getWindow();
+        WindowManager.LayoutParams winParams = win.getAttributes();
+        final int bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION;
+        if (on) {
+            winParams.flags |=  bits;
+        } else {
+            winParams.flags &= ~bits;
+        }
+        win.setAttributes(winParams);
+    }
+
     private String getDisplaySize() {
         DisplayMetrics dm = getResources().getDisplayMetrics();
         return String.format("DisplayMetrics = (%d x %d)", dm.widthPixels, dm.heightPixels);
@@ -141,24 +175,23 @@ public class OverscanActivity extends Activity
 
     static int TOAST_LENGTH = 500;
     IV mImage;
-    CheckBox[] mCheckControls = new CheckBox[6];
+    CheckBox[] mCheckControls = new CheckBox[8];
     int[] mCheckFlags = new int[] { View.SYSTEM_UI_FLAG_LOW_PROFILE,
             View.SYSTEM_UI_FLAG_FULLSCREEN, View.SYSTEM_UI_FLAG_HIDE_NAVIGATION,
+            View.SYSTEM_UI_FLAG_IMMERSIVE, View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY,
             View.SYSTEM_UI_FLAG_LAYOUT_STABLE, View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN,
             View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
     };
     TextView mMetricsText;
 
-    public OverscanActivity() {
+    public SystemUIModes() {
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        getWindow().requestFeature(Window.FEATURE_ACTION_BAR_OVERLAY);
-
-        setContentView(R.layout.overscan);
+        setContentView(R.layout.system_ui_modes);
         mImage = (IV) findViewById(R.id.image);
         mImage.setActivity(this);
 
@@ -171,9 +204,11 @@ public class OverscanActivity extends Activity
         mCheckControls[0] = (CheckBox) findViewById(R.id.modeLowProfile);
         mCheckControls[1] = (CheckBox) findViewById(R.id.modeFullscreen);
         mCheckControls[2] = (CheckBox) findViewById(R.id.modeHideNavigation);
-        mCheckControls[3] = (CheckBox) findViewById(R.id.layoutStable);
-        mCheckControls[4] = (CheckBox) findViewById(R.id.layoutFullscreen);
-        mCheckControls[5] = (CheckBox) findViewById(R.id.layoutHideNavigation);
+        mCheckControls[3] = (CheckBox) findViewById(R.id.modeImmersive);
+        mCheckControls[4] = (CheckBox) findViewById(R.id.modeImmersiveSticky);
+        mCheckControls[5] = (CheckBox) findViewById(R.id.layoutStable);
+        mCheckControls[6] = (CheckBox) findViewById(R.id.layoutFullscreen);
+        mCheckControls[7] = (CheckBox) findViewById(R.id.layoutHideNavigation);
         for (int i=0; i<mCheckControls.length; i++) {
             mCheckControls[i].setOnCheckedChangeListener(checkChangeListener);
         }
@@ -182,6 +217,30 @@ public class OverscanActivity extends Activity
                     @Override
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                         setFullscreen(isChecked);
+                    }
+                }
+        );
+        ((CheckBox) findViewById(R.id.windowOverscan)).setOnCheckedChangeListener(
+                new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                        setOverscan(isChecked);
+                    }
+                }
+        );
+        ((CheckBox) findViewById(R.id.windowTranslucentStatus)).setOnCheckedChangeListener(
+                new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                        setTranslucentStatus(isChecked);
+                    }
+                }
+        );
+        ((CheckBox) findViewById(R.id.windowTranslucentNav)).setOnCheckedChangeListener(
+                new CompoundButton.OnCheckedChangeListener() {
+                    @Override
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                        setTranslucentNavigation(isChecked);
                     }
                 }
         );
