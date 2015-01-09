@@ -5,9 +5,12 @@ import android.os.Bundle;
 
 import com.example.android.apis.R;
 
+import cn.daiq.debug.DPL;
 import cn.daiq.ui.percent.RadialPercentage;
 
 public class Test1 extends Activity {
+
+    private DPL dpl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,6 +19,7 @@ public class Test1 extends Activity {
 
         //setContentView(new RadialPercentage(this));
         setContentView(R.layout.daiq_test_white);
+        dpl = DPL.instance(this);
     }
 
     @Override
@@ -30,6 +34,7 @@ public class Test1 extends Activity {
         super.onResume();
         RadialPercentage view = (RadialPercentage) findViewById(R.id.radialPercentage);
         view.setFractions(50, 100);
+        dpl.markCoord(0, 0);
     }
 
     @Override

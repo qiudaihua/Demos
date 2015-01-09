@@ -1,5 +1,5 @@
 
-package cn.daiq;
+package cn.daiq.debug;
 
 import android.util.Log;
 

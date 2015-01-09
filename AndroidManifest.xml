@@ -41,7 +41,7 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <!-- add end -->
 
-    <uses-sdk android:minSdkVersion="4" android:targetSdkVersion="14" />
+    <uses-sdk android:minSdkVersion="11" android:targetSdkVersion="19" />
 
     <!-- We will request access to the camera, saying we require a camera
          of some sort but not one with autofocus capability. -->
