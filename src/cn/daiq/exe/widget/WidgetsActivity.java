@@ -28,6 +28,7 @@ public class WidgetsActivity extends Activity {
                 new ComponentName("com.android.music",
                         "com.android.music.MediaAppWidgetProvider"));
         Log.d("daiq", "success=" + success);
+        //need <uses-permission android:name="android.permission.BIND_APPWIDGET" />
         if (success) {
             AppWidgetProviderInfo appWidgetInfo = appWidgetManager.getAppWidgetInfo(appWidgetId);
             Log.d("daiq", "appWidgetInfo=" + appWidgetInfo);
