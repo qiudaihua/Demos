@@ -2,6 +2,7 @@
 package cn.daiq.debug;
 
 import android.util.Log;
+import android.view.View;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -18,6 +19,7 @@ public class DL {
         Date date = new Date(curTime);
         String milliTimeStr = formatter.format(date);
         Log.d("daiq", "--------" + milliTimeStr + "# " + getStackFuncStr(++depth));
+        int i = View.STATUS_BAR_TRANSIENT;
     }
 
     public static void printMilliTime(long milliTime) {

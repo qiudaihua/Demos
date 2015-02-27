@@ -28,8 +28,9 @@ import java.util.ArrayList;
 public class DPL {
 
     public static final int MODE_NONE = 0;
-    public static final int MODE_INPUT = 1;
-    public static final int MODE_MARK = 2;
+    public static final int MODE_MARK = 1;
+    public static final int MODE_TOUCH = 2;
+    public static final int MODE_INPUT = 4;
 
     private static DPL sDPL;
     private PL mPL;
@@ -714,13 +715,19 @@ public class DPL {
 
         @Override
         public boolean onTouchEvent(MotionEvent event) {
-            if (mMode != MODE_INPUT) {
+            if (mMode != MODE_TOUCH && mMode != MODE_INPUT) {
                 return super.onTouchEvent(event);
             }
             addPointerEvent(event);
 
-            if (event.getAction() == MotionEvent.ACTION_DOWN && !isFocused()) {
-                requestFocus();
+            if (mMode == MODE_TOUCH) {
+                return super.onTouchEvent(event);
+            }
+
+            if (mMode == MODE_INPUT) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN && !isFocused()) {
+                    requestFocus();
+                }
             }
             return true;
         }
