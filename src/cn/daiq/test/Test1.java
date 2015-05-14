@@ -9,6 +9,9 @@ import cn.daiq.ui.percent.RadialPercentage;
 
 import com.example.android.apis.R;
 
+import cn.daiq.debug.DPL;
+import cn.daiq.ui.percent.RadialPercentage;
+
 public class Test1 extends Activity {
     
     private class BoolObj {
@@ -30,6 +33,8 @@ public class Test1 extends Activity {
     HashMap<Integer, BoolObj> map = new HashMap<Integer, BoolObj>();
     BoolObj b1 = new BoolObj(false);
 
+    private DPL dpl;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // TODO Auto-generated method stub
@@ -41,6 +46,7 @@ public class Test1 extends Activity {
         map.put(1, b1);
         BoolObj b2 = map.get(1);
         Log.d("daiq", "1b1=" + b1.value() + ";b2=" + b2.value());
+        dpl = DPL.instance(this);
     }
 
     @Override
@@ -59,6 +65,8 @@ public class Test1 extends Activity {
         b1.set(true);
         BoolObj b2 = map.get(1);
         Log.d("daiq", "2b1=" + b1.value() + ";b2=" + b2.value());
+
+        dpl.markCoord(0, 0);
     }
 
     @Override
