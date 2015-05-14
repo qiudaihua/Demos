@@ -41,7 +41,7 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <!-- add end -->
 
-    <uses-sdk android:minSdkVersion="4" android:targetSdkVersion="14" />
+    <uses-sdk android:minSdkVersion="17" android:targetSdkVersion="19" />
 
     <!-- We will request access to the camera, saying we require a camera
          of some sort but not one with autofocus capability. -->
@@ -3065,6 +3065,11 @@
                 <category android:name="android.intent.category.SAMPLE_CODE" />
             </intent-filter>
         </activity>
+        <receiver android:name="cn.daiq.test.TestReceiver1">
+            <intent-filter>
+                <action android:name="android.intent.action.GOSO_QUICK_ACCESS_APP" />
+            </intent-filter>
+        </receiver>
         <activity android:name="cn.daiq.test.ConfigureTest" android:label="DaiQ/Test/ConfigureTest">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
