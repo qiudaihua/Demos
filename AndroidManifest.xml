@@ -39,9 +39,10 @@
     
     <!-- add begin by daiq -->
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <!-- add end -->
 
-    <uses-sdk android:minSdkVersion="17" android:targetSdkVersion="19" />
+    <uses-sdk android:minSdkVersion="17" android:targetSdkVersion="17" />
 
     <!-- We will request access to the camera, saying we require a camera
          of some sort but not one with autofocus capability. -->
@@ -3031,6 +3032,19 @@
                 <category android:name="android.intent.category.SAMPLE_CODE" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="cn.daiq.exe.window.FloatWindowExe"
+            android:label="DaiQ/Exercise/Window/FloatWindowExe" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.SAMPLE_CODE" />
+            </intent-filter>
+        </activity>
+        <service
+            android:name="cn.daiq.exe.window.FloatService"
+            android:label="DaiQ/Exercise/TabWidgetExe" >
+        </service>
         <!-- Other -->
         <activity
             android:name="cn.daiq.other.graphics.ShadowLayer"
@@ -3112,13 +3126,11 @@
                 <action android:name="android.intent.action.GOSO_QUICK_ACCESS_APP" />
             </intent-filter>
         </receiver>
-        <activity android:name="cn.daiq.test.ConfigureTest" android:label="DaiQ/Test/ConfigureTest">
         <activity
             android:name="cn.daiq.test.ConfigureTest"
             android:label="DaiQ/Test/ConfigureTest" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.SAMPLE_CODE" />
             </intent-filter>
         </activity>
@@ -3128,14 +3140,11 @@
             android:label="DaiQ/Test/LauncherShortcutsTest" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.SAMPLE_CODE" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <!-- add end -->
-
-
     </application>
 
     <instrumentation android:name=".app.LocalSampleInstrumentation"
